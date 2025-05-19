@@ -1,18 +1,29 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class HistorialMedico {
     private String id;
     private Paciente paciente;
-    private String informacion;
+    private List<String> entradas; // diagnósticos y tratamientos
 
-    public  HistorialMedico(String id, Paciente paciente, String informacion) {
+    public HistorialMedico(String id, Paciente paciente) {
         this.id = id;
         this.paciente = paciente;
-        this.informacion = informacion;
+        this.entradas = new ArrayList<>();
     }
 
-    //METODO GETTER Y SETTER
+    public void agregarEntrada(String diagnostico, String tratamiento) {
+        String entrada = "Diagnóstico: " + diagnostico + " | Tratamiento: " + tratamiento;
+        entradas.add(entrada);
+    }
 
+    public List<String> getEntradas() {
+        return entradas;
+    }
+
+    // Getters y Setters
     public String getId() {
         return id;
     }
@@ -27,13 +38,5 @@ public class HistorialMedico {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
-    }
-
-    public String getInformacion() {
-        return informacion;
-    }
-
-    public void setInformacion(String informacion) {
-        this.informacion = informacion;
     }
 }
