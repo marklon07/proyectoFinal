@@ -8,7 +8,7 @@ public class Hospital {
     private String nombre;
     private ArrayList<Administrador> listaAdministradores;
     private ArrayList<Medico> listMedicos;
-    private ArrayList<Paciente> listPacientes;
+    private static ArrayList<Paciente> listPacientes;
     private ArrayList<Cita> listCitas;
     private ArrayList<HistorialMedico> listHistorialesMedicos;
     private ArrayList<Diagnostico> listDiagnosticos;
@@ -93,30 +93,37 @@ public class Hospital {
     }
 
     public ArrayList<Medico> getListMedicos() {
+
         return listMedicos;
     }
 
     public void setListMedicos(ArrayList<Medico> listMedicos) {
+
         this.listMedicos = listMedicos;
     }
 
-    public ArrayList<Paciente> getListPacientes() {
+    public static ArrayList<Paciente> getListPacientes() {
+
         return listPacientes;
     }
 
     public void setListPacientes(ArrayList<Paciente> listPacientes) {
+
         this.listPacientes = listPacientes;
     }
 
     public ArrayList<Cita> getListCitas() {
+
         return listCitas;
     }
 
     public void setListCitas(ArrayList<Cita> listCitas) {
+
         this.listCitas = listCitas;
     }
 
     public ArrayList<HistorialMedico> getListHistorialesMedicos() {
+
         return listHistorialesMedicos;
     }
 
@@ -125,6 +132,7 @@ public class Hospital {
     }
 
     public ArrayList<Diagnostico> getListDiagnosticos() {
+
         return listDiagnosticos;
     }
 
@@ -133,6 +141,7 @@ public class Hospital {
     }
 
     public ArrayList<Tratamiento> getListTratamientos() {
+
         return listTratamientos;
     }
 

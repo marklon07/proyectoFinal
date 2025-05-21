@@ -27,40 +27,50 @@ public class Medico extends Persona {
     }
 
     // 2. Registrar diagnóstico y tratamiento a un paciente
-    public void registrarDiagnosticoTratamiento(Paciente paciente, String diagnostico, String tratamiento) {
+    public boolean registrarDiagnosticoTratamiento(Paciente paciente, String diagnostico, String tratamiento) {
+        boolean i = false;
         if (pacientes.contains(paciente)) {
             paciente.getHistorialMedico().agregarEntrada(diagnostico, tratamiento);
+            i = true;
         }
+        return i;
     }
 
     // 3. Administrar horarios de consulta
     public void agregarHorario(HorarioConsulta horario) {
+
         horarios.add(horario);
     }
 
     public void eliminarHorario(HorarioConsulta horario) {
+
         horarios.remove(horario);
     }
 
     public List<HorarioConsulta> getHorarios() {
+
         return horarios;
     }
 
     // 4. Notificaciones de cambios en citas
     public void notificarCambioCita(String mensaje) {
+
         notificaciones.add(mensaje);
     }
 
     public List<String> getNotificaciones() {
+
         return notificaciones;
     }
 
     // Getters y setters
     public String getEspecialidad() {
+
         return especialidad;
     }
 
     public void setEspecialidad(String especialidad) {
+
         this.especialidad = especialidad;
     }
 
@@ -68,9 +78,4 @@ public class Medico extends Persona {
         return pacientes;
     }
 
-    public void agregarPaciente(Paciente paciente) {
-        if (!pacientes.contains(paciente)) {
-            pacientes.add(paciente);
-        }
-    }
 }

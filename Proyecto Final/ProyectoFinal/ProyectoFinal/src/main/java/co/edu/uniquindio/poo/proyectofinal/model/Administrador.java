@@ -1,7 +1,68 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
+import java.util.ArrayList;
+
 public class Administrador extends Persona{
     public Administrador(String nombre, String cedula, String correo, String edad){
         super(nombre, cedula, correo, edad);
     }
+
+    //METODO PARA CREAR PACIENTE
+    public static boolean agregarPaciente(String id, String nombre, String correo, String edad){
+        boolean i = false;
+        ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
+        for(Paciente paciente : listPacientes){
+            if(paciente.getCedula().equals(id)){
+                 return i;
+            }
+            if(i){
+                Paciente newPaciente = new Paciente(id, nombre, correo, edad);
+                listPacientes.add(newPaciente);
+                i = true;
+            }
+        }
+        return i;
+    }
+
+    //METODO PARA ELIMINAR PACIENTE
+    public static boolean eliminarPaciente(String id){
+        boolean i = false;
+        ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
+        for(Paciente paciente : listPacientes){
+            if(paciente.getCedula().equals(id)){
+                listPacientes.remove(paciente);
+                i = true;
+            }
+        }
+        return i;
+    }
+
+    //METODO PARA ACTUALIZAR PACIENTE
+    public static boolean actualizarPaciente(String cedula, String nombre, String correo, String edad){
+        boolean i = false;
+        ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
+        for(Paciente paciente : listPacientes){
+            if(paciente.getCedula().equals(cedula)){
+                paciente.setNombre(nombre);
+                paciente.setCorreo(correo);
+                paciente.setEdad(edad);
+                i = true;
+            }
+        }
+        return i;
+    }
+
+    //METODO PARA BUSCAR PACIENTE
+    public static Paciente buscarPacient(String id){
+        boolean i = false;
+        ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
+        for(Paciente paciente : listPacientes){
+            if(paciente.getCedula().equals(id)){
+                return paciente;
+            }
+        }
+        return null;
+    }
+
+
 }

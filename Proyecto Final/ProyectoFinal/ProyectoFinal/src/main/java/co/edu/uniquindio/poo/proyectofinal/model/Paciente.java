@@ -38,19 +38,23 @@ public class Paciente extends Persona{
 
     // 4. Consulta del historial médico
     public HistorialMedico getHistorialMedico() {
+
         return historialMedico;
     }
 
     // 5. Recepción de notificaciones
     public void recibirNotificacion(String mensaje) {
+
         notificaciones.add(mensaje);
     }
 
     public List<String> getNotificaciones() {
+
         return notificaciones;
     }
 
     public List<CitaMedica> getCitas() {
+
         return citas;
     }
 }
