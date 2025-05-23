@@ -18,12 +18,15 @@ public class Medico extends Persona {
     }
 
     // Acceder a historiales médicos
-    public List<HistorialMedico> verHistoriales() {
-        List<HistorialMedico> historiales = new ArrayList<>();
-        for (Paciente paciente : pacientes) {
-            historiales.add(paciente.getHistorialMedico());
+    public HistorialMedico verHistoriales(Paciente paciente) {
+        HistorialMedico historial = null;
+        for (Paciente pacienteIt : pacientes) {
+            if (pacienteIt == paciente) {
+                historial = paciente.getHistorialMedico();
+                break;
+            }
         }
-        return historiales;
+        return historial;
     }
 
     // 2. Registrar diagnóstico y tratamiento a un paciente

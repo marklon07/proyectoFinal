@@ -2,26 +2,22 @@ package co.edu.uniquindio.poo.proyectofinal.model;
 
 import java.util.ArrayList;
 
-public class Administrador extends Persona{
+public class Administrador extends Persona implements IGestionPaciente {
     public Administrador(String nombre, String cedula, String correo, String edad){
         super(nombre, cedula, correo, edad);
     }
 
     //METODO PARA CREAR PACIENTE
-    public static boolean agregarPaciente(String id, String nombre, String correo, String edad){
-        boolean i = false;
-        ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
-        for(Paciente paciente : listPacientes){
+    @Override
+    public boolean agregarPaciente(String id, String nombre, String correo, String edad){
+        for(Paciente paciente : Hospital.getListPacientes()){
             if(paciente.getCedula().equals(id)){
-                 return i;
-            }
-            if(i){
-                Paciente newPaciente = new Paciente(id, nombre, correo, edad);
-                listPacientes.add(newPaciente);
-                i = true;
+                 return false;
             }
         }
-        return i;
+        Paciente newpaciente = new Paciente(id, nombre, correo, edad);
+        Hospital.getListPacientes().add(newpaciente);
+        return true;
     }
 
     //METODO PARA ELIMINAR PACIENTE
@@ -32,21 +28,24 @@ public class Administrador extends Persona{
             if(paciente.getCedula().equals(id)){
                 listPacientes.remove(paciente);
                 i = true;
+                break;
+
             }
         }
         return i;
     }
 
     //METODO PARA ACTUALIZAR PACIENTE
-    public static boolean actualizarPaciente(String cedula, String nombre, String correo, String edad){
+    @Override
+    public boolean actualizarPaciente(String cedula, String nombre, String correo, String edad){
         boolean i = false;
-        ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
-        for(Paciente paciente : listPacientes){
+        for(Paciente paciente : Hospital.getListPacientes()){
             if(paciente.getCedula().equals(cedula)){
                 paciente.setNombre(nombre);
                 paciente.setCorreo(correo);
                 paciente.setEdad(edad);
                 i = true;
+                break;
             }
         }
         return i;
