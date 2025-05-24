@@ -7,9 +7,9 @@ import java.util.ArrayList;
 public class Hospital {
     private String nombre;
     private ArrayList<Administrador> listaAdministradores;
-    private ArrayList<Medico> listMedicos;
+    private static ArrayList<Medico> listMedicos;
     private static ArrayList<Paciente> listPacientes;
-    private ArrayList<Cita> listCitas;
+    private ArrayList<CitaMedica> listCitas;
     private ArrayList<HistorialMedico> listHistorialesMedicos;
     private ArrayList<Diagnostico> listDiagnosticos;
     private ArrayList<Tratamiento> listTratamientos;
@@ -92,7 +92,7 @@ public class Hospital {
         this.listaAdministradores = listaAdministradores;
     }
 
-    public ArrayList<Medico> getListMedicos() {
+    public static ArrayList<Medico> getListMedicos() {
 
         return listMedicos;
     }
@@ -112,12 +112,12 @@ public class Hospital {
         this.listPacientes = listPacientes;
     }
 
-    public ArrayList<Cita> getListCitas() {
+    public ArrayList<CitaMedica> getListCitas() {
 
         return listCitas;
     }
 
-    public void setListCitas(ArrayList<Cita> listCitas) {
+    public void setListCitas(ArrayList<CitaMedica> listCitas) {
 
         this.listCitas = listCitas;
     }
