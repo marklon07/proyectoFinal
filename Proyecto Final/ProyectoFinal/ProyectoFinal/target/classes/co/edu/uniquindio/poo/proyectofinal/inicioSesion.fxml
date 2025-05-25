@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.poo.proyectofinal.InicioSesion"
+            prefHeight="400.0" prefWidth="600.0">
+
+    <!-- Título -->
+    <Label text="Sistema Hospitalario UQ"
+           layoutX="200.0" layoutY="50.0"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <!-- Campo Usuario -->
+    <Label text="Usuario:" layoutX="150.0" layoutY="120.0"/>
+    <TextField fx:id="txtUsuario" layoutX="220.0" layoutY="115.0" prefWidth="200.0"/>
+
+    <!-- Campo Contraseña -->
+    <Label text="Contraseña:" layoutX="150.0" layoutY="160.0"/>
+    <PasswordField fx:id="txtPassword" layoutX="220.0" layoutY="155.0" prefWidth="200.0"/>
+
+    <!-- ComboBox Tipo Usuario -->
+    <Label text="Tipo:" layoutX="150.0" layoutY="200.0"/>
+    <ComboBox fx:id="cmbTipoUsuario" promptText="tipo de usuario"
+              layoutX="220.0" layoutY="195.0" prefWidth="200.0">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Paciente" />
+                <String fx:value="Médico" />
+                <String fx:value="Administrador" />
+            </FXCollections>
+        </items>
+    </ComboBox>
+
+    <!-- Botones -->
+    <Button fx:id="btnLogin" text="Iniciar Sesión"
+            layoutX="220.0" layoutY="250.0" prefWidth="100.0"
+            onAction="#btnLogin_Click"/>
+    <Button fx:id="btnRegistrar" text="Registrarse"
+            layoutX="330.0" layoutY="250.0" prefWidth="100.0"
+            onAction="#btnRegistrar_Click"/>
+
+</AnchorPane>
+
