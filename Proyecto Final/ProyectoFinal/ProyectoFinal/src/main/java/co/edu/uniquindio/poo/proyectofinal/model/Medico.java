@@ -29,6 +29,36 @@ public class Medico extends Persona {
         return historial;
     }
 
+    //METODO PARA CREAR DIAGNOSTICO
+    public boolean crearDiagnostico(Paciente paciente, Diagnostico diagnostico, String informacion){
+        boolean i = false;
+        for (Paciente pacienteIt : pacientes) {
+            if (pacienteIt == paciente) {
+                diagnostico.setInformacion(informacion);
+                diagnostico.setPaciente(paciente);
+                i = true;
+                break;
+            }
+        }
+        return i;
+    }
+
+    //METODO PARA CREAR TRATAMIENTO
+    public boolean crearTratamiento(Paciente paciente, Tratamiento tratamiento, String informacion){
+        boolean i = false;
+        for (Paciente pacienteIt : pacientes) {
+            if (pacienteIt == paciente) {
+                tratamiento.setInformacion(informacion);
+                tratamiento.setPaciente(paciente);
+                i = true;
+                break;
+            }
+        }
+        return i;
+    }
+
+
+
     // 2. Registrar diagnóstico y tratamiento a un paciente
     public boolean registrarDiagnosticoTratamiento(Paciente paciente, String diagnostico, String tratamiento) {
         boolean i = false;

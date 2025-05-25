@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Paciente extends Persona implements IGestionPaciente{
+    private Tratamiento tratamiento;
+    private Diagnostico diagnostico;
     private HistorialMedico historialMedico;
     private List<CitaMedica> citas;
     private List<String> notificaciones;
@@ -81,5 +83,35 @@ public class Paciente extends Persona implements IGestionPaciente{
     public List<CitaMedica> getCitas() {
 
         return citas;
+    }
+
+    //GETTER Y SETTER
+
+    public Tratamiento getTratamiento() {
+        return tratamiento;
+    }
+
+    public void setTratamiento(Tratamiento tratamiento) {
+        this.tratamiento = tratamiento;
+    }
+
+    public Diagnostico getDiagnostico() {
+        return diagnostico;
+    }
+
+    public void setDiagnostico(Diagnostico diagnostico) {
+        this.diagnostico = diagnostico;
+    }
+
+    public void setHistorialMedico(HistorialMedico historialMedico) {
+        this.historialMedico = historialMedico;
+    }
+
+    public void setCitas(List<CitaMedica> citas) {
+        this.citas = citas;
+    }
+
+    public void setNotificaciones(List<String> notificaciones) {
+        this.notificaciones = notificaciones;
     }
 }
