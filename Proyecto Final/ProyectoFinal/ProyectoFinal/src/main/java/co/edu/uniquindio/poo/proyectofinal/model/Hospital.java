@@ -20,18 +20,14 @@ public class Hospital {
 
     //METODO PARA CREAR ADMINS
     public boolean crearAdmin(String nombre, String cedula, String correo, String edad){
-        boolean i = true;
         for(Administrador admin : listaAdministradores){
             if(admin.getCedula().equals(cedula)){
-                i = false;
-                break;
-            }
-            if(i){
-                Administrador newAdmin = new Administrador(nombre, cedula, correo, edad);
-                listaAdministradores.add(newAdmin);
+                return false;
             }
         }
-        return i;
+        Administrador newAdmin = new Administrador(nombre, cedula, correo, edad);
+        listaAdministradores.add(newAdmin);
+        return true;
     }
 
     //METODO PARA ELIMINAR ADMIN
@@ -41,6 +37,7 @@ public class Hospital {
             if (admin.getCedula().equals(cedula)) {
                 listaAdministradores.remove(admin);
                 i = true;
+                break;
             }
         }
         return i;
@@ -55,6 +52,7 @@ public class Hospital {
                 admin.setCorreo(correo);
                 admin.setEdad(edad);
                 i = true;
+                break;
             }
         }
         return i;
@@ -73,6 +71,7 @@ public class Hospital {
     //METOD PARA CREAR HISTORIAL MEDICO
 
     //METODO PARA ASIGNAR ID HISTORIALMEDICO
+
 
     //METODO GETTER Y SETTER
 
