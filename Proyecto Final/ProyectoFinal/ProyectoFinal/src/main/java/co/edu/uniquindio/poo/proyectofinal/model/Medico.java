@@ -16,7 +16,7 @@ public class Medico extends Persona {
         this.horarios = new ArrayList<>();
         this.notificaciones = new ArrayList<>();
     }
-//
+
     // Acceder a historiales médicos
     public HistorialMedico verHistoriales(Paciente paciente) {
         HistorialMedico historial = null;

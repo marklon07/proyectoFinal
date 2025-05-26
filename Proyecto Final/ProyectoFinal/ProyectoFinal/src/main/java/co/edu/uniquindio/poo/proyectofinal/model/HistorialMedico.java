@@ -40,4 +40,3 @@ public class HistorialMedico {
         this.paciente = paciente;
     }
 }
-//

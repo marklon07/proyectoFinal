@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.HistorialMedicoViewController">
+   <children>
+      <Button id="btnSalir" fx:id="btnSalir" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#cambiarVentana" text="SALIR" />
+      <Button id="btnBuscar" fx:id="btnBuscar" layoutX="375.0" layoutY="63.0" mnemonicParsing="false" onAction="#verHistorialMedico" text="Buscar" />
+      <TextField id="txtCedula" fx:id="txtCedula" layoutX="209.0" layoutY="63.0" />
+      <Label id="lblCedula" fx:id="lblCedula" layoutX="157.0" layoutY="67.0" text="Cedula:" />
+      <Label id="lblHistorialMedico" fx:id="lblHistorialMedico" layoutX="248.0" layoutY="18.0" text="Historial Medico" />
+      <ListView id="lvwHM" fx:id="lvwHM" layoutX="116.0" layoutY="117.0" prefHeight="246.0" prefWidth="351.0" />
+   </children>
+</AnchorPane>

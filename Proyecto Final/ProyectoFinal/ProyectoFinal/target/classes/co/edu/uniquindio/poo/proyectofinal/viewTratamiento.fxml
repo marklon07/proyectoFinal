@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="btn1" prefHeight="400.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.TratamientoViewController">
+   <children>
+      <Button id="btnSalir" fx:id="btnSalir" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#cambiarVentana" text="SALIR" />
+      <Button id="btnCrear" fx:id="btnCrear" layoutX="390.0" layoutY="75.0" mnemonicParsing="false" onAction="#crearTratamiento" text="Crear" />
+      <Button id="btnBuscar" fx:id="btnBuscar" layoutX="258.0" layoutY="75.0" mnemonicParsing="false" onAction="#buscarPaciente" text="Buscar" />
+      <Button id="btnActualizar" fx:id="btnActualizar" layoutX="516.0" layoutY="75.0" mnemonicParsing="false" text="Actualizar" />
+      <Button id="btnEliminar" fx:id="btnEliminar" layoutX="448.0" layoutY="75.0" mnemonicParsing="false" text="Eliminar" />
+      <Label id="lblCedula" fx:id="lblCedula" layoutX="47.0" layoutY="79.0" text="Cedula:" />
+      <TextField id="txtCedula" fx:id="txtCedula" layoutX="95.0" layoutY="75.0" />
+      <Label id="lblTratamiento" fx:id="lblTratamiento" layoutX="289.0" layoutY="30.0" text="Tratamiento" />
+      <ListView id="lvwTratamiento" fx:id="lvwTratamiento" layoutX="133.0" layoutY="134.0" prefHeight="231.0" prefWidth="377.0" />
+   </children>
+</AnchorPane>

@@ -17,14 +17,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.pacienteViewController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.pacienteViewController">
     <children>
-        <Label layoutX="20.0" layoutY="10.0" text="Panel de Paciente">
+        <Label layoutX="447.0" layoutY="9.0" text="Panel de Paciente">
             <font>
                 <Font name="System Bold" size="24.0" />
             </font>
         </Label>
-        <Label fx:id="lblWelcomePatient" layoutX="20.0" layoutY="45.0" text="Bienvenido, [Nombre Paciente]">
+        <Label fx:id="lblWelcomePatient" layoutX="447.0" layoutY="44.0" text="Bienvenido, [Nombre Paciente]">
             <font>
                 <Font size="14.0" />
             </font>
@@ -195,5 +195,6 @@
                 </Tab>
             </tabs>
         </TabPane>
+      <Button id="btnSalir" fx:id="btnSalir" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#ventanaAnterior" text="SALIR" />
     </children>
 </AnchorPane>

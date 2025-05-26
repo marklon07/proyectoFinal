@@ -27,4 +27,3 @@ public class Diagnostico {
         this.informacion = informacion;
     }
 }
-//

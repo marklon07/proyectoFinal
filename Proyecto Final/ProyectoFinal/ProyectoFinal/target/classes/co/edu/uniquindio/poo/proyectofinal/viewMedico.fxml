@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.MedicoViewController">
+   <children>
+      <Button id="btnHistorialMedico" fx:id="btnHistorialMedico" layoutX="210.0" layoutY="21.0" mnemonicParsing="false" onAction="#cambiarVentana" text="Historial Medico" />
+      <Button id="btnDiagnostico" fx:id="btnDiagnostico" layoutX="325.0" layoutY="21.0" mnemonicParsing="false" onAction="#cambiarVentana" text="Diagnostico" />
+      <Button id="btnHorarios" fx:id="btnHorario" layoutX="507.0" layoutY="21.0" mnemonicParsing="false" onAction="#cambiarVentana" text="Horarios" />
+      <Button id="btnTratamiento" fx:id="btnTratamiento" layoutX="416.0" layoutY="21.0" mnemonicParsing="false" onAction="#cambiarVentana" text="Tratamiento" />
+      <Button id="btnSalir" fx:id="btnSalir" layoutX="24.0" layoutY="21.0" mnemonicParsing="false" onAction="#ventanaAnterior" text="SALIR" />
+      <Label id="lblMedico" fx:id="lbl1" layoutX="62.0" layoutY="152.0" text="Medico:" />
+      <Label id="lblEspecialidad" fx:id="lbl2" layoutX="37.0" layoutY="182.0" text="Especialidad:" />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <TextField id="txtMedico" fx:id="txtMedico" layoutX="150.0" layoutY="148.0" onAction="#mostrarMedico" />
+      <TextField id="txtEspecialidad" fx:id="txtEspecialidad" layoutX="150.0" layoutY="178.0" onAction="#mostrarEspecialidad" />
+   </children>
+</AnchorPane>
