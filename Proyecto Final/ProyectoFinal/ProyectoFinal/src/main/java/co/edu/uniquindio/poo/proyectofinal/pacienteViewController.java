@@ -1,75 +1,367 @@
 package co.edu.uniquindio.poo.proyectofinal;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
-// Importa aquí tus clases de modelo si las necesitas, por ejemplo:
-// import co.edu.uniquindio.poo.proyectofinal.model.Paciente;
+import java.net.URL;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class pacienteViewController {
+public class pacienteViewController implements Initializable {
 
+    // --- Tab 1: Actualizar Perfil ---
     @FXML
-    private Label lblWelcomePaciente; // Si agregaras un Label de bienvenida con fx:id="lblWelcomePaciente"
+    private Label lblWelcomePatient;
+    @FXML
+    private TextField txtProfileId;
+    @FXML
+    private TextField txtProfileName;
+    @FXML
+    private TextField txtProfileLastName;
+    @FXML
+    private TextField txtProfileEmail;
 
-    // Este método se llamaría desde el HelloController para pasar el nombre de usuario
-    public void setWelcomeMessage(String username) {
-        // Si tienes un Label con fx:id="lblWelcomePaciente" en tu FXML, podrías hacer esto:
-        // lblWelcomePaciente.setText("Bienvenido, " + username);
-        System.out.println("Paciente logueado: " + username); // Solo para depuración si no hay Label
+    // --- Tab 2: Solicitar Cita ---
+    @FXML
+    private DatePicker dpAppointmentDate;
+    @FXML
+    private TableView<HorarioDisponible> tblAvailableTimes;
+    @FXML
+    private TableColumn<HorarioDisponible, String> colAvailableDoctor;
+    @FXML
+    private TableColumn<HorarioDisponible, String> colAvailableDate;
+    @FXML
+    private TableColumn<HorarioDisponible, String> colAvailableTime;
+    @FXML
+    private TableColumn<HorarioDisponible, String> colAvailableRoom;
+
+    // --- Tab 3: Cancelar Cita ---
+    @FXML
+    private TableView<CitaPaciente> tblMyAppointments;
+    @FXML
+    private TableColumn<CitaPaciente, String> colMyApptDoctor;
+    @FXML
+    private TableColumn<CitaPaciente, String> colMyApptSpecialty;
+    @FXML
+    private TableColumn<CitaPaciente, String> colMyApptDate;
+    @FXML
+    private TableColumn<CitaPaciente, String> colMyApptTime;
+    @FXML
+    private TableColumn<CitaPaciente, String> colMyApptStatus;
+
+    // --- Tab 4: Ver Historial Médico ---
+    @FXML
+    private DatePicker dpHistoryStartDate;
+    @FXML
+    private DatePicker dpHistoryEndDate;
+    @FXML
+    private TableView<HistorialMedico> tblMedicalHistory;
+    @FXML
+    private TableColumn<HistorialMedico, String> colHistoryDate;
+    @FXML
+    private TableColumn<HistorialMedico, String> colHistoryDoctor;
+    @FXML
+    private TableColumn<HistorialMedico, String> colHistoryReason;
+    @FXML
+    private TableColumn<HistorialMedico, String> colHistoryDiagnosis;
+    @FXML
+    private TableColumn<HistorialMedico, String> colHistoryTreatment;
+
+    // Datos del paciente actual
+    private String pacienteId;
+    private String pacienteNombre;
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // Configurar las columnas de las tablas
+        configurarColumnasTablas();
+
+        // Cargar datos iniciales
+        cargarDatosPaciente();
+        cargarHorariosDisponibles();
+        cargarCitasPaciente();
+        cargarHistorialMedico();
     }
 
-    // Método initialize: se ejecuta automáticamente al cargar el FXML
-    @FXML
-    public void initialize() {
-        // Aquí puedes realizar cualquier configuración inicial necesaria para la interfaz del paciente.
-        // Por ejemplo, cargar datos iniciales del paciente desde tu modelo/base de datos.
-        System.out.println("Panel de Paciente cargado.");
+    private void configurarColumnasTablas() {
+        // Tabla de horarios disponibles
+        colAvailableDoctor.setCellValueFactory(new PropertyValueFactory<>("doctor"));
+        colAvailableDate.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        colAvailableTime.setCellValueFactory(new PropertyValueFactory<>("hora"));
+        colAvailableRoom.setCellValueFactory(new PropertyValueFactory<>("sala"));
+
+        // Tabla de citas del paciente
+        colMyApptDoctor.setCellValueFactory(new PropertyValueFactory<>("doctor"));
+        colMyApptSpecialty.setCellValueFactory(new PropertyValueFactory<>("especialidad"));
+        colMyApptDate.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        colMyApptTime.setCellValueFactory(new PropertyValueFactory<>("hora"));
+        colMyApptStatus.setCellValueFactory(new PropertyValueFactory<>("estado"));
+
+        // Tabla de historial médico
+        colHistoryDate.setCellValueFactory(new PropertyValueFactory<>("fecha"));
+        colHistoryDoctor.setCellValueFactory(new PropertyValueFactory<>("doctor"));
+        colHistoryReason.setCellValueFactory(new PropertyValueFactory<>("motivo"));
+        colHistoryDiagnosis.setCellValueFactory(new PropertyValueFactory<>("diagnostico"));
+        colHistoryTreatment.setCellValueFactory(new PropertyValueFactory<>("tratamiento"));
     }
 
-    // --- Manejadores de Eventos para los Botones ---
+    private void cargarDatosPaciente() {
+        // Aquí cargarías los datos del paciente desde tu base de datos o modelo
+        // Por ahora, datos de ejemplo
+        pacienteId = "PAC001";
+        pacienteNombre = "Juan Pérez";
+
+        lblWelcomePatient.setText("Bienvenido, " + pacienteNombre);
+        txtProfileId.setText(pacienteId);
+        txtProfileName.setText("Juan");
+        txtProfileLastName.setText("Pérez");
+        txtProfileEmail.setText("juan.perez@email.com");
+    }
+
+    private void cargarHorariosDisponibles() {
+        ObservableList<HorarioDisponible> horarios = FXCollections.observableArrayList();
+
+        // Datos de ejemplo - aquí conectarías con tu lógica de negocio
+        horarios.add(new HorarioDisponible("Dr. García", "2024-02-15", "09:00", "Sala 101"));
+        horarios.add(new HorarioDisponible("Dr. López", "2024-02-15", "10:30", "Sala 102"));
+        horarios.add(new HorarioDisponible("Dr. Martínez", "2024-02-16", "14:00", "Sala 103"));
+
+        tblAvailableTimes.setItems(horarios);
+    }
+
+    private void cargarCitasPaciente() {
+        ObservableList<CitaPaciente> citas = FXCollections.observableArrayList();
+
+        // Datos de ejemplo
+        citas.add(new CitaPaciente("Dr. García", "Cardiología", "2024-02-20", "09:00", "Confirmada"));
+        citas.add(new CitaPaciente("Dr. López", "Neurología", "2024-02-25", "15:30", "Pendiente"));
+
+        tblMyAppointments.setItems(citas);
+    }
+
+    private void cargarHistorialMedico() {
+        ObservableList<HistorialMedico> historial = FXCollections.observableArrayList();
+
+        // Datos de ejemplo
+        historial.add(new HistorialMedico("2024-01-15", "Dr. Ramírez", "Dolor de cabeza", "Migraña", "Ibuprofeno 400mg"));
+        historial.add(new HistorialMedico("2024-01-10", "Dr. Silva", "Chequeo general", "Estado saludable", "Vitaminas"));
+
+        tblMedicalHistory.setItems(historial);
+    }
+
+    // --- Métodos de manejo de eventos ---
 
     @FXML
-    private void handleActualizarPerfil(ActionEvent event) {
-        // Lógica para abrir la interfaz de actualización de perfil del paciente
-        System.out.println("Botón 'Actualizar Perfil' presionado.");
-        mostrarAlerta(AlertType.INFORMATION, "Funcionalidad", "Aquí se abriría la ventana para actualizar el perfil.");
-        // TODO: Implementar la navegación a la interfaz de Actualizar Perfil
+    private void handleSaveProfileChanges() {
+        try {
+            String nombre = txtProfileName.getText().trim();
+            String apellido = txtProfileLastName.getText().trim();
+            String email = txtProfileEmail.getText().trim();
+
+            if (nombre.isEmpty() || apellido.isEmpty() || email.isEmpty()) {
+                mostrarAlerta("Error", "Todos los campos son obligatorios", Alert.AlertType.ERROR);
+                return;
+            }
+
+            // Aquí implementarías la lógica para guardar en tu base de datos
+            // Por ejemplo: pacienteService.actualizarPaciente(pacienteId, nombre, apellido, email);
+
+            mostrarAlerta("Éxito", "Perfil actualizado correctamente", Alert.AlertType.INFORMATION);
+            lblWelcomePatient.setText("Bienvenido, " + nombre + " " + apellido);
+
+        } catch (Exception e) {
+            mostrarAlerta("Error", "Error al guardar cambios: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
-    private void handleSolicitarCita(ActionEvent event) {
-        // Lógica para abrir la interfaz de solicitud de citas
-        System.out.println("Botón 'Solicitar Cita' presionado.");
-        mostrarAlerta(AlertType.INFORMATION, "Funcionalidad", "Aquí se abriría la ventana para solicitar una nueva cita.");
-        // TODO: Implementar la navegación a la interfaz de Solicitud de Citas
+    private void handleConfirmAppointment() {
+        HorarioDisponible horarioSeleccionado = tblAvailableTimes.getSelectionModel().getSelectedItem();
+
+        if (horarioSeleccionado == null) {
+            mostrarAlerta("Advertencia", "Por favor seleccione un horario disponible", Alert.AlertType.WARNING);
+            return;
+        }
+
+        try {
+            // Aquí implementarías la lógica para confirmar la cita
+            // Por ejemplo: citaService.crearCita(pacienteId, horarioSeleccionado);
+
+            mostrarAlerta("Éxito", "Cita confirmada para el " + horarioSeleccionado.getFecha() +
+                            " a las " + horarioSeleccionado.getHora() + " con " + horarioSeleccionado.getDoctor(),
+                    Alert.AlertType.INFORMATION);
+
+            // Actualizar las tablas
+            cargarHorariosDisponibles();
+            cargarCitasPaciente();
+
+        } catch (Exception e) {
+            mostrarAlerta("Error", "Error al confirmar cita: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
     @FXML
-    private void handleCancelarCita(ActionEvent event) {
-        // Lógica para abrir la interfaz de cancelación de citas
-        System.out.println("Botón 'Cancelar Cita' presionado.");
-        mostrarAlerta(AlertType.INFORMATION, "Funcionalidad", "Aquí se abriría la ventana para cancelar una cita existente.");
-        // TODO: Implementar la navegación a la interfaz de Cancelar Cita
+    private void handleCancelSelectedAppointment() {
+        CitaPaciente citaSeleccionada = tblMyAppointments.getSelectionModel().getSelectedItem();
+
+        if (citaSeleccionada == null) {
+            mostrarAlerta("Advertencia", "Por favor seleccione una cita para cancelar", Alert.AlertType.WARNING);
+            return;
+        }
+
+        Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        confirmAlert.setTitle("Confirmar Cancelación");
+        confirmAlert.setHeaderText("¿Está seguro de cancelar esta cita?");
+        confirmAlert.setContentText("Cita con " + citaSeleccionada.getDoctor() + " el " + citaSeleccionada.getFecha());
+
+        if (confirmAlert.showAndWait().get() == ButtonType.OK) {
+            try {
+                // Aquí implementarías la lógica para cancelar la cita
+                // Por ejemplo: citaService.cancelarCita(citaSeleccionada.getId());
+
+                mostrarAlerta("Éxito", "Cita cancelada correctamente", Alert.AlertType.INFORMATION);
+                cargarCitasPaciente();
+                cargarHorariosDisponibles();
+
+            } catch (Exception e) {
+                mostrarAlerta("Error", "Error al cancelar cita: " + e.getMessage(), Alert.AlertType.ERROR);
+            }
+        }
     }
 
     @FXML
-    private void handleVerHistorial(ActionEvent event) {
-        // Lógica para abrir la interfaz de visualización del historial médico
-        System.out.println("Botón 'Ver Historial Médico' presionado.");
-        mostrarAlerta(AlertType.INFORMATION, "Funcionalidad", "Aquí se abriría la ventana para ver el historial médico.");
-        // TODO: Implementar la navegación a la interfaz de Historial Médico
+    private void handleSearchHistory() {
+        LocalDate fechaInicio = dpHistoryStartDate.getValue();
+        LocalDate fechaFin = dpHistoryEndDate.getValue();
+
+        if (fechaInicio == null || fechaFin == null) {
+            mostrarAlerta("Advertencia", "Por favor seleccione ambas fechas", Alert.AlertType.WARNING);
+            return;
+        }
+
+        if (fechaInicio.isAfter(fechaFin)) {
+            mostrarAlerta("Error", "La fecha de inicio no puede ser posterior a la fecha de fin", Alert.AlertType.ERROR);
+            return;
+        }
+
+        try {
+            // Aquí implementarías la lógica para filtrar el historial por fechas
+            // Por ejemplo: List<HistorialMedico> historialFiltrado = historialService.buscarPorFechas(pacienteId, fechaInicio, fechaFin);
+
+            // Por ahora, solo mostramos un mensaje
+            mostrarAlerta("Información", "Búsqueda realizada del " + fechaInicio + " al " + fechaFin, Alert.AlertType.INFORMATION);
+
+        } catch (Exception e) {
+            mostrarAlerta("Error", "Error al buscar historial: " + e.getMessage(), Alert.AlertType.ERROR);
+        }
     }
 
-    // --- Método Auxiliar para Alertas ---
-
-    private void mostrarAlerta(AlertType type, String title, String message) {
-        Alert alert = new Alert(type);
-        alert.setTitle(title);
+    // Método auxiliar para mostrar alertas
+    private void mostrarAlerta(String titulo, String mensaje, Alert.AlertType tipo) {
+        Alert alert = new Alert(tipo);
+        alert.setTitle(titulo);
         alert.setHeaderText(null);
-        alert.setContentText(message);
+        alert.setContentText(mensaje);
         alert.showAndWait();
+    }
+
+    // Método para inicializar datos del paciente (llamado desde el controlador principal)
+    public void initData(String pacienteId, String pacienteNombre) {
+        this.pacienteId = pacienteId;
+        this.pacienteNombre = pacienteNombre;
+
+        lblWelcomePatient.setText("Bienvenido, " + pacienteNombre);
+        txtProfileId.setText(pacienteId);
+
+        // Recargar datos específicos del paciente
+        cargarDatosPaciente();
+        cargarCitasPaciente();
+        cargarHistorialMedico();
+    }
+
+    // --- Clases modelo para las tablas ---
+
+    public static class HorarioDisponible {
+        private String doctor;
+        private String fecha;
+        private String hora;
+        private String sala;
+
+        public HorarioDisponible(String doctor, String fecha, String hora, String sala) {
+            this.doctor = doctor;
+            this.fecha = fecha;
+            this.hora = hora;
+            this.sala = sala;
+        }
+
+        // Getters y setters
+        public String getDoctor() { return doctor; }
+        public void setDoctor(String doctor) { this.doctor = doctor; }
+        public String getFecha() { return fecha; }
+        public void setFecha(String fecha) { this.fecha = fecha; }
+        public String getHora() { return hora; }
+        public void setHora(String hora) { this.hora = hora; }
+        public String getSala() { return sala; }
+        public void setSala(String sala) { this.sala = sala; }
+    }
+
+    public static class CitaPaciente {
+        private String doctor;
+        private String especialidad;
+        private String fecha;
+        private String hora;
+        private String estado;
+
+        public CitaPaciente(String doctor, String especialidad, String fecha, String hora, String estado) {
+            this.doctor = doctor;
+            this.especialidad = especialidad;
+            this.fecha = fecha;
+            this.hora = hora;
+            this.estado = estado;
+        }
+
+        // Getters y setters
+        public String getDoctor() { return doctor; }
+        public void setDoctor(String doctor) { this.doctor = doctor; }
+        public String getEspecialidad() { return especialidad; }
+        public void setEspecialidad(String especialidad) { this.especialidad = especialidad; }
+        public String getFecha() { return fecha; }
+        public void setFecha(String fecha) { this.fecha = fecha; }
+        public String getHora() { return hora; }
+        public void setHora(String hora) { this.hora = hora; }
+        public String getEstado() { return estado; }
+        public void setEstado(String estado) { this.estado = estado; }
+    }
+
+    public static class HistorialMedico {
+        private String fecha;
+        private String doctor;
+        private String motivo;
+        private String diagnostico;
+        private String tratamiento;
+
+        public HistorialMedico(String fecha, String doctor, String motivo, String diagnostico, String tratamiento) {
+            this.fecha = fecha;
+            this.doctor = doctor;
+            this.motivo = motivo;
+            this.diagnostico = diagnostico;
+            this.tratamiento = tratamiento;
+        }
+
+        // Getters y setters
+        public String getFecha() { return fecha; }
+        public void setFecha(String fecha) { this.fecha = fecha; }
+        public String getDoctor() { return doctor; }
+        public void setDoctor(String doctor) { this.doctor = doctor; }
+        public String getMotivo() { return motivo; }
+        public void setMotivo(String motivo) { this.motivo = motivo; }
+        public String getDiagnostico() { return diagnostico; }
+        public void setDiagnostico(String diagnostico) { this.diagnostico = diagnostico; }
+        public String getTratamiento() { return tratamiento; }
+        public void setTratamiento(String tratamiento) { this.tratamiento = tratamiento; }
     }
 }

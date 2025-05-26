@@ -70,14 +70,20 @@ public class HelloController {
             // TODO: Navegar a la interfaz del médico
 
         }else if (usuario.equals("paciente") && password.equals("345")&&"Paciente".equals(tipoUsuario)) {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(".fxml")); // Ruta al FXML del paciente
+            System.out.println("¡Inicio de sesión como Paciente exitoso!"); // Es buena idea mantener este log
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("paciente.fxml")); // Ruta al FXML del paciente
             Parent root = loader.load();
-            pacienteViewController pacienteController = loader.getController();
-            Stage stage = (Stage) btnLogin.getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.setTitle("Panel de Paciente");
-            stage.show();
+
+            // Si tienes un controlador específico para paciente.fxml, puedes obtenerlo aquí:
+            pacienteViewController pacienteViewController = loader.getController();
+            // Y luego, si necesitas, pasarle datos iniciales a ese controlador.
+            // pacienteController.initData(datosDelPaciente);
+
+            Stage stage = (Stage) btnLogin.getScene().getWindow(); // Obtienes la ventana actual
+            Scene scene = new Scene(root); // Creas la nueva escena con la vista del paciente
+            stage.setScene(scene); // Estableces la nueva escena en la ventana
+            stage.setTitle("Panel de Paciente"); // Cambias el título de la ventana
+            stage.show(); // Muestras la nueva interfaz
 
         } else {
             System.out.println("Usuario, contraseña o tipo de usuario incorrectos.");
@@ -96,7 +102,7 @@ public class HelloController {
     // Manejador de eventos para el botón "Registrarse"
     // La propiedad onAction="#btnRegistrar_Click" en tu FXML enlaza a este método.
     @FXML
-    protected void btnRegistrar_Click(ActionEvent event) {
+    protected void btnRegistrar_Click(ActionEvent event) throws IOException {
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
         String tipoUsuario = cmbTipoUsuario.getValue();
@@ -109,7 +115,14 @@ public class HelloController {
         // Aquí agregarías tu lógica de registro.
         // Por ejemplo, guardar el nuevo usuario en una base de datos.
         if (usuario.isEmpty() || password.isEmpty() || tipoUsuario == null) {
-            System.out.println("Error de registro: Por favor, complete todos los campos.");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("errorNadaSeleccionado.fxml"));
+            Parent root = loader.load();
+            errorNadaSelecionado errNadaSelecionado = loader.getController();
+            Stage stage = (Stage) btnRegistrar.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Error");
+            stage.show();
             // TODO: Mostrar un mensaje de error.
         } else {
             System.out.println("Usuario '" + usuario + "' de tipo '" + tipoUsuario + "' registrado (simulado) exitosamente.");
