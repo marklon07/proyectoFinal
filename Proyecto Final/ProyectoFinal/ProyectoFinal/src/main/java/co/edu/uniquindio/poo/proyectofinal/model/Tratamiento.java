@@ -27,3 +27,4 @@ public class Tratamiento {
         this.informacion = informacion;
     }
 }
+//

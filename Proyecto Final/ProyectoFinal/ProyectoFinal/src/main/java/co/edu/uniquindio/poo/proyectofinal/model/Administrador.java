@@ -113,6 +113,6 @@ public class Administrador extends Persona implements IGestionPaciente {
         }
         return null;
     }
-
+//
 
 }

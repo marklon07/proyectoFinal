@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.controller.PacienteController">
+    <children>
+        <Label layoutX="20.0" layoutY="10.0" text="Panel de Paciente">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Label>
+        <Label fx:id="lblWelcomePatient" layoutX="20.0" layoutY="45.0" text="Bienvenido, [Nombre Paciente]">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <TabPane layoutX="10.0" layoutY="80.0" prefHeight="500.0" prefWidth="780.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Actualizar Perfil">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="14.0" layoutY="14.0" prefHeight="450.0" prefWidth="750.0" spacing="15.0">
+                                    <children>
+                                        <Label text="Actualizar Información Personal">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <GridPane hgap="10.0" vgap="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="120.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="300.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="ID Paciente:" />
+                                                <TextField fx:id="txtProfileId" disable="true" promptText="Su ID (no editable)" GridPane.columnIndex="1" />
+                                                <Label text="Nombre:" GridPane.rowIndex="1" />
+                                                <TextField fx:id="txtProfileName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="Apellido:" GridPane.rowIndex="2" />
+                                                <TextField fx:id="txtProfileLastName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label text="Email:" GridPane.rowIndex="3" />
+                                                <TextField fx:id="txtProfileEmail" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                            </children>
+                                        </GridPane>
+                                        <Button onAction="#handleSaveProfileChanges" text="Guardar Cambios" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Solicitar Cita">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="14.0" layoutY="14.0" prefHeight="450.0" prefWidth="750.0" spacing="15.0">
+                                    <children>
+                                        <Label text="Solicitar Nueva Cita Médica">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox spacing="10.0" />
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Label text="Fecha Preferida:" />
+                                                <DatePicker fx:id="dpAppointmentDate" />
+                                            </children>
+                                        </HBox>
+                                        <Label text="Horarios Disponibles:">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="tblAvailableTimes" prefHeight="200.0" prefWidth="750.0">
+                                            <columns>
+                                                <TableColumn fx:id="colAvailableDoctor" prefWidth="150.0" text="Médico" />
+                                                <TableColumn fx:id="colAvailableDate" prefWidth="120.0" text="Fecha" />
+                                                <TableColumn fx:id="colAvailableTime" prefWidth="100.0" text="Hora" />
+                                                <TableColumn fx:id="colAvailableRoom" prefWidth="100.0" text="Sala" />
+                                            </columns>
+                                        </TableView>
+                                        <Button onAction="#handleConfirmAppointment" text="Confirmar Cita Seleccionada" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Cancelar Cita">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="14.0" layoutY="14.0" prefHeight="450.0" prefWidth="750.0" spacing="15.0">
+                                    <children>
+                                        <Label text="Cancelar Cita Existente">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Sus Próximas Citas:">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <TableView fx:id="tblMyAppointments" prefHeight="250.0" prefWidth="750.0">
+                                            <columns>
+                                                <TableColumn fx:id="colMyApptDoctor" prefWidth="150.0" text="Médico" />
+                                                <TableColumn fx:id="colMyApptSpecialty" prefWidth="120.0" text="Especialidad" />
+                                                <TableColumn fx:id="colMyApptDate" prefWidth="120.0" text="Fecha" />
+                                                <TableColumn fx:id="colMyApptTime" prefWidth="100.0" text="Hora" />
+                                                <TableColumn fx:id="colMyApptStatus" prefWidth="100.0" text="Estado" />
+                                            </columns>
+                                        </TableView>
+                                        <Button onAction="#handleCancelSelectedAppointment" text="Cancelar Cita Seleccionada" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Ver Historial Médico">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <VBox layoutX="14.0" layoutY="14.0" prefHeight="450.0" prefWidth="750.0" spacing="15.0">
+                                    <children>
+                                        <Label text="Historial Médico">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <Label text="Filtrar por Fecha:">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+                                        <HBox spacing="10.0">
+                                            <children>
+                                                <Label text="Desde:" />
+                                                <DatePicker fx:id="dpHistoryStartDate" />
+                                                <Label text="Hasta:" />
+                                                <DatePicker fx:id="dpHistoryEndDate" />
+                                                <Button onAction="#handleSearchHistory" text="Buscar Historial" />
+                                            </children>
+                                        </HBox>
+                                        <TableView fx:id="tblMedicalHistory" prefHeight="300.0" prefWidth="750.0">
+                                            <columns>
+                                                <TableColumn fx:id="colHistoryDate" prefWidth="100.0" text="Fecha" />
+                                                <TableColumn fx:id="colHistoryDoctor" prefWidth="150.0" text="Médico" />
+                                                <TableColumn fx:id="colHistoryReason" prefWidth="200.0" text="Motivo de Consulta" />
+                                                <TableColumn fx:id="colHistoryDiagnosis" prefWidth="200.0" text="Diagnóstico" />
+                                                <TableColumn fx:id="colHistoryTreatment" prefWidth="200.0" text="Tratamiento" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </padding>
+                                </VBox>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

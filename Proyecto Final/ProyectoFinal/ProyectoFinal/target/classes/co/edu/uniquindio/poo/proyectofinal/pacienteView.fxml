@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="co.edu.uniquindio.poo.proyectofinal.PacienteViewController">
+    <top>
+        <Label text="Panel de Paciente" style="-fx-font-size: 18px; -fx-padding: 10px;" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER" padding="20">
+            <Button text="Actualizar Perfil" onAction="#handleActualizarPerfil"/>
+            <Button text="Solicitar Cita" onAction="#handleSolicitarCita"/>
+            <Button text="Cancelar Cita" onAction="#handleCancelarCita"/>
+            <Button text="Ver Historial Médico" onAction="#handleVerHistorial"/>
+        </VBox>
+    </center>
+</BorderPane>

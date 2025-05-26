@@ -16,7 +16,7 @@ public class Paciente extends Persona implements IGestionPaciente{
         this.citas = new ArrayList<>();
         this.notificaciones = new ArrayList<>();
     }
-
+    //
     //METODO PARA CREAR PACIENTE
     @Override
     public boolean agregarPaciente(String cedula, String nombre, String correo, String edad){

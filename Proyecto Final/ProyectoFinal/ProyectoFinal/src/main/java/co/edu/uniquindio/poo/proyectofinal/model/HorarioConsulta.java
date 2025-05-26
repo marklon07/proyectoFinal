@@ -41,3 +41,4 @@ public class HorarioConsulta {
         return dia + " de " + horaInicio + " a " + horaFin;
     }
 }
+//

@@ -29,6 +29,7 @@ public class Hospital {
         listaAdministradores.add(newAdmin);
         return true;
     }
+    //
 
     //METODO PARA ELIMINAR ADMIN
     public boolean eliminarAdmin(String cedula) {

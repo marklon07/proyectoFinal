@@ -44,7 +44,7 @@
 
     <!-- Botones -->
     <Button fx:id="btnLogin" layoutX="194.0" layoutY="250.0" onAction="#btnLogin_Click" prefWidth="100.0" text="Iniciar Sesión" />
-    <Button fx:id="btnRegistrar" layoutX="314.0" layoutY="250.0" onAction="#btnRegistrar_Click" prefWidth="100.0" text="Registrarse" />
+    <Button fx:id="btnRegistrar" layoutX="331.0" layoutY="250.0" onAction="#btnRegistrar_Click" prefWidth="100.0" text="Registrarse" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#129c3c" height="18.0" layoutY="-7.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#129c3c" height="18.0" layoutY="386.0" stroke="BLACK" strokeType="INSIDE" width="600.0" />
    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#129c3c" height="404.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="11.0" />
