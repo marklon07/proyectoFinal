@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.proyectofinal.controller;
+package co.edu.uniquindio.poo.proyectofinal.Controller;
 
 
 import co.edu.uniquindio.poo.proyectofinal.model.Diagnostico;
@@ -28,11 +28,7 @@ public class MedicoController {
         return paciente.getHistorialMedico();
     }
 
-    public boolean agregarDiagnostico(Medico medico, Diagnostico diagnostico, Paciente paciente, String informacion){
-        return medico.crearDiagnostico(paciente, diagnostico, informacion);
-    }
 
-    public boolean agregarTratamieto(Medico medico, Tratamiento tratamiento, Paciente paciente, String informacion) {
-        return medico.crearTratamiento(paciente, tratamiento, informacion);
-    }
+
+
 }

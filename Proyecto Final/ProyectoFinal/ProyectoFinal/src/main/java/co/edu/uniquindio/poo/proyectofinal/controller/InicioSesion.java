@@ -1,4 +1,4 @@
-package co.edu.uniquindio.poo.proyectofinal.controller;
+package co.edu.uniquindio.poo.proyectofinal.Controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;

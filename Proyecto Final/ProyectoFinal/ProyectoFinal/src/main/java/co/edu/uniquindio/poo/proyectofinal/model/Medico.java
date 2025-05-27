@@ -112,6 +112,5 @@ public class Medico extends Persona {
     }
 
     public void agregarPaciente(Paciente paciente) {
-
     }
 }

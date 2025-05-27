@@ -1,7 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
 import javafx.event.ActionEvent;
-import co.edu.uniquindio.poo.proyectofinal.controller.MedicoController;
+import co.edu.uniquindio.poo.proyectofinal.Controller.MedicoController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

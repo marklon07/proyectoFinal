@@ -16,6 +16,14 @@ public class Hospital {
 
     public Hospital(String nombre){
         this.nombre = nombre;
+        this.listaAdministradores = new ArrayList<>();
+        this.listMedicos = new ArrayList<>();
+        this.listPacientes = new ArrayList<>();
+        this.listCitas = new ArrayList<>();
+        this.listHistorialesMedicos = new ArrayList<>();
+        this.listDiagnosticos = new ArrayList<>();
+        this.listTratamientos = new ArrayList<>();
+
     }
 
     //METODO PARA CREAR ADMINS

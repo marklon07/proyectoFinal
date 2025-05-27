@@ -22,7 +22,7 @@ public class Administrador extends Persona implements IGestionPaciente {
     }
 
     //METODO PARA ELIMINAR PACIENTE
-    public static boolean eliminarPaciente(String id){
+    public boolean eliminarPaciente(String id){
         boolean i = false;
         ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
         for(Paciente paciente : listPacientes){
@@ -53,7 +53,7 @@ public class Administrador extends Persona implements IGestionPaciente {
     }
 
     //METODO PARA BUSCAR PACIENTE
-    public static Paciente buscarPacient(String id){
+    public static Paciente buscarPaciente(String id){
         boolean i = false;
         ArrayList<Paciente> listPacientes = Hospital.getListPacientes();
         for(Paciente paciente : listPacientes){
@@ -79,9 +79,10 @@ public class Administrador extends Persona implements IGestionPaciente {
     //METODO PARA ELIMINAR MEDICO
     public boolean eliminarMedico(String id){
         boolean i = false;
-        for(Medico medico : Hospital.getListMedicos()){
+        ArrayList<Medico> listMedicos = Hospital.getListMedicos();
+        for(Medico medico : listMedicos){
             if(medico.getCedula().equals(id)){
-                Hospital.getListMedicos().remove(medico);
+                listMedicos.remove(medico);
                 i = true;
                 break;
             }
@@ -133,19 +134,9 @@ public void asignarPacienteAMedico(Paciente paciente, Medico medico) {
         return null;
     }
 
-    public void agregarPaciente(Paciente paciente) {
 
-    }
 
-    public void crearMedico(Medico medico) {
-
-    }
-
-    public void actualizarMedico(Medico medico, String s, String hematología) {
-
-    }
-
-    public void agregarSala(Sala sala) {
+    public void agregarSala(co.edu.uniquindio.poo.proyectofinal.model.Sala sala) {
 
     }
 

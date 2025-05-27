@@ -1,6 +1,6 @@
 package co.edu.uniquindio.poo.proyectofinal.viewController;
 
-import co.edu.uniquindio.poo.proyectofinal.controller.MedicoController;
+import co.edu.uniquindio.poo.proyectofinal.Controller.MedicoController;
 import co.edu.uniquindio.poo.proyectofinal.model.Paciente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

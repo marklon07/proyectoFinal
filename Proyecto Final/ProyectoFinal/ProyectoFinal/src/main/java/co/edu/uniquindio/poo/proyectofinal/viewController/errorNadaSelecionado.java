@@ -32,4 +32,21 @@ public class errorNadaSelecionado {
         stage.show();
 
     }
+
+    @FXML
+    void ventanaAnterior(ActionEvent event) {
+        Button boton = (Button) event.getSource();
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/proyectofinal/iniciosesion.fxml"));
+            Parent root = loader.load();
+
+            Stage stage = (Stage) boton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.setTitle("");
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
