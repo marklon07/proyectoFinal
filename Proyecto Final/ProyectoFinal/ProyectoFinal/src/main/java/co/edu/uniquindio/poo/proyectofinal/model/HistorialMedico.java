@@ -8,7 +8,7 @@ public class HistorialMedico {
     private Paciente paciente;
     private List<String> entradas; // diagnósticos y tratamientos
 
-    public HistorialMedico(String id, Paciente paciente) {
+    public HistorialMedico() {
         this.id = id;
         this.paciente = paciente;
         this.entradas = new ArrayList<>();

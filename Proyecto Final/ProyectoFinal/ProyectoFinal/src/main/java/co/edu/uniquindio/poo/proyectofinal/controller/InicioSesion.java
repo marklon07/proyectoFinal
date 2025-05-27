@@ -16,7 +16,7 @@ public class InicioSesion {
     private PasswordField txtPassword;
 
     @FXML
-    private ComboBox<String> cmbTipoUsuario; // Declara tu ComboBox con el mismo fx:id y tipo de dato
+    private ComboBox<String> cmbTipoUsuario; // Declara la ComboBox con el mismo fx:id y tipo de dato
 
     @FXML
     private void btnLogin_Click(ActionEvent event) {

@@ -5,14 +5,15 @@ public class CitaMedica {
     private Medico medico;
     private Paciente paciente;
 
+    // Constructor corregido: recibe objetos Medico y Paciente
     public CitaMedica(String fecha, Medico medico, Paciente paciente) {
         this.fecha = fecha;
         this.medico = medico;
         this.paciente = paciente;
     }
 
-    //GETTER Y SETTER
 
+    // Getters y setters
     public String getFecha() {
         return fecha;
     }
@@ -37,6 +38,7 @@ public class CitaMedica {
         this.paciente = paciente;
     }
 }
+
 
 
 

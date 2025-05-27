@@ -12,7 +12,7 @@ public class Paciente extends Persona implements IGestionPaciente{
 
     public Paciente(String nombre, String cedula, String correo, String edad) {
         super(nombre, cedula, correo, edad);
-        this.historialMedico = new HistorialMedico("HIST-" + cedula, this);
+        this.historialMedico = new HistorialMedico();
         this.citas = new ArrayList<>();
         this.notificaciones = new ArrayList<>();
     }

@@ -1,7 +1,7 @@
 module co.edu.uniquindio.poo.proyectofinal {
     requires javafx.controls;
     requires javafx.fxml;
-
+    requires junit;
 
 
     opens co.edu.uniquindio.poo.proyectofinal.viewController to javafx.fxml;

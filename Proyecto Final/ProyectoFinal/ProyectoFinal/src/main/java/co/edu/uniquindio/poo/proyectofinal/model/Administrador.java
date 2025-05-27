@@ -1,6 +1,7 @@
 package co.edu.uniquindio.poo.proyectofinal.model;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Administrador extends Persona implements IGestionPaciente {
     public Administrador(String nombre, String cedula, String correo, String edad){
@@ -113,6 +114,54 @@ public class Administrador extends Persona implements IGestionPaciente {
         }
         return null;
     }
+//    Metodo para asignar un paciente a un medico
+public void asignarPacienteAMedico(Paciente paciente, Medico medico) {
+    if (paciente != null && medico != null) {
+        medico.agregarPaciente(paciente);
+        System.out.println("Paciente asignado al médico correctamente.");
+    } else {
+        System.out.println("No se pudo asignar el paciente. Verifica los datos.");
+    }
+}
 
 
+    public Collection<Object> getMedicos() {
+     return null;
+    }
+
+    public Collection<Object> getPacientes() {
+        return null;
+    }
+
+    public void agregarPaciente(Paciente paciente) {
+
+    }
+
+    public void crearMedico(Medico medico) {
+
+    }
+
+    public void actualizarMedico(Medico medico, String s, String hematología) {
+
+    }
+
+    public void agregarSala(Sala sala) {
+
+    }
+
+    public void asignarHorarioSala(Sala sala, HorarioConsulta horarioConsulta) {
+
+    }
+
+    public Collection<Object> getSalas() {
+        return null;
+    }
+
+    public Reporte generarReporteCitas() {
+        return null;
+    }
+
+    public Reporte generarReporteOcupacion() {
+        return null;
+    }
 }

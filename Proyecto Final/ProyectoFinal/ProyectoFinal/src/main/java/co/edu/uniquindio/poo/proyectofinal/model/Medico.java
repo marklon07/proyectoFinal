@@ -30,12 +30,12 @@ public class Medico extends Persona {
     }
 
     //METODO PARA CREAR DIAGNOSTICO
-    public boolean crearDiagnostico(Paciente paciente, Diagnostico diagnostico, String informacion){
+    public boolean crearDiagnostico(Paciente paciente, String diagnostico, String informacion){
         boolean i = false;
         for (Paciente pacienteIt : pacientes) {
             if (pacienteIt == paciente) {
-                diagnostico.setInformacion(informacion);
-                diagnostico.setPaciente(paciente);
+                diagnostico.formatted(informacion);
+                diagnostico.split(String.valueOf(paciente));
                 i = true;
                 break;
             }
@@ -44,12 +44,12 @@ public class Medico extends Persona {
     }
 
     //METODO PARA CREAR TRATAMIENTO
-    public boolean crearTratamiento(Paciente paciente, Tratamiento tratamiento, String informacion){
+    public boolean crearTratamiento(Paciente paciente, String tratamiento, String informacion){
         boolean i = false;
         for (Paciente pacienteIt : pacientes) {
             if (pacienteIt == paciente) {
-                tratamiento.setInformacion(informacion);
-                tratamiento.setPaciente(paciente);
+                tratamiento.formatted(informacion);
+                tratamiento.split(String.valueOf(paciente));
                 i = true;
                 break;
             }
@@ -111,4 +111,7 @@ public class Medico extends Persona {
         return pacientes;
     }
 
+    public void agregarPaciente(Paciente paciente) {
+
+    }
 }
