@@ -15,51 +15,31 @@ import java.io.IOException;
 
 public class inicioSesion {
 
-    // Anotaciones FXML para inyectar los componentes de la UI desde tu archivo .fxml
     @FXML
-    private TextField txtUsuario; // Corresponde a fx:id="txtUsuario" en tu FXML
+    private TextField txtUsuario;
 
     @FXML
-    private PasswordField txtPassword; // Corresponde a fx:id="txtPassword" en tu FXML
+    private PasswordField txtPassword;
 
     @FXML
-    private ComboBox<String> cmbTipoUsuario; // Corresponde a fx:id="cmbTipoUsuario" en tu FXML
+    private ComboBox<String> cmbTipoUsuario;
 
     @FXML
-    private Button btnLogin; // Corresponde a fx:id="btnLogin" en tu FXML
+    private Button btnLogin;
 
     @FXML
-    private Button btnRegistrar; // Corresponde a fx:id="btnRegistrar" en tu FXML
+    private Button btnRegistrar;
 
-    // Este método es llamado automáticamente por JavaFX después de que el archivo FXML se carga.
-    // Es un buen lugar para realizar tareas de inicialización, como poblar el ComboBox.
+
     @FXML
     public void initialize() {
-        // Ya tienes los <items> definidos en tu FXML, así que quizás no necesites hacer esto aquí
-        // a menos que quieras agregar elementos programáticamente o realizar otra configuración.
-        // Ejemplo si quisieras agregar elementos programáticamente:
-        // ObservableList<String> userTypes = FXCollections.observableArrayList(
-        //     "Paciente", "Médico", "Administrador"
-        // );
-        // cmbTipoUsuario.setItems(userTypes);
-
-        // Opcional: Establecer un valor seleccionado por defecto o un texto de sugerencia si no está en FXML
-        // cmbTipoUsuario.getSelectionModel().selectFirst(); // Selecciona "Paciente"
     }
 
-    // Manejador de eventos para el botón "Iniciar Sesión"
-    // La propiedad onAction="#btnLogin_Click" en tu FXML enlaza a este método.
     @FXML
     protected void btnLogin_Click(ActionEvent event) throws IOException {
         String usuario = txtUsuario.getText();
         String password = txtPassword.getText();
         String tipoUsuario = cmbTipoUsuario.getValue();
-
-        System.out.println("--- Intento de Inicio de Sesión ---");
-        System.out.println("Usuario: " + usuario);
-        System.out.println("Contraseña: " + password);
-        System.out.println("Tipo de Usuario: " + (tipoUsuario != null ? tipoUsuario : "No seleccionado"));
-
         FXMLLoader loader;
         Parent root;
         Stage stage = (Stage) btnLogin.getScene().getWindow();
@@ -95,8 +75,6 @@ public class inicioSesion {
         }
     }
 
-    // Manejador de eventos para el botón "Registrarse"
-    // La propiedad onAction="#btnRegistrar_Click" en tu FXML enlaza a este método.
     @FXML
     protected void btnRegistrar_Click(ActionEvent event) {
         String usuario = txtUsuario.getText();
@@ -108,14 +86,12 @@ public class inicioSesion {
         System.out.println("Contraseña a registrar: " + password);
         System.out.println("Tipo de Usuario seleccionado para registro: " + (tipoUsuario != null ? tipoUsuario : "No seleccionado"));
 
-        // Aquí agregarías tu lógica de registro.
-        // Por ejemplo, guardar el nuevo usuario en una base de datos.
+
         if (usuario.isEmpty() || password.isEmpty() || tipoUsuario == null) {
             System.out.println("Error de registro: Por favor, complete todos los campos.");
-            // TODO: Mostrar un mensaje de error.
+
         } else {
             System.out.println("Usuario '" + usuario + "' de tipo '" + tipoUsuario + "' registrado (simulado) exitosamente.");
-            // TODO: Guardar usuario en la base de datos, mostrar mensaje de éxito, quizás limpiar campos o navegar al inicio de sesión.
             txtUsuario.clear();
             txtPassword.clear();
             cmbTipoUsuario.getSelectionModel().clearSelection(); // Deselecciona el ítem

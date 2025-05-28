@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="269.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.errorNadaSelecionado">
+<AnchorPane prefHeight="269.0" prefWidth="412.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.poo.proyectofinal.viewController.errorNadaSelecionado">
     <children>
         <Text layoutX="14.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Por favor seleccione tipo de usuario e " textAlignment="CENTER">
             <font>
@@ -22,6 +21,6 @@
                 <Font size="22.0" />
             </font>
         </Text>
-        <Button fx:id="btnRegresar" layoutX="165.0" layoutY="201.0" mnemonicParsing="false" text="Regresar" />
+        <Button fx:id="btnRegresar" layoutX="165.0" layoutY="201.0" mnemonicParsing="false" onAction="#ventanaAnterior" text="Regresar" />
     </children>
 </AnchorPane>

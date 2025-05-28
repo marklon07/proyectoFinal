@@ -13,12 +13,12 @@ import java.io.IOException;
 public class errorNadaSelecionado {
 
     @FXML
-    private Button btnRegresar; // Inyecta el botón con fx:id="btnRegresar"
+    private Button btnRegresar;
 
     @FXML
     public void initialize() {
         System.out.println("Ventana de error 'Nada Seleccionado' cargada.");
-        // No hay lógica inicial específica para este error más allá de la visualización.
+
     }
 
     @FXML
